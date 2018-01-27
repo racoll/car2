@@ -1,7 +1,9 @@
 class Car
 
-  def fuel
-    []
+  attr_reader :fuel
+
+  def initialize
+    @fuel = []
   end
 
 end
