@@ -12,9 +12,10 @@ RSpec.describe Car do
 
     it { is_expected.to respond_to(:refuel).with(1).argument }
 
-    it "can be refueled" do
-      car.refuel(4)
-      expect(car.fuel).to eq 4
+    it "can refuel the car" do
+      expect { car.refuel(4) }.to change{ car.fuel }.by 4
+      # car.refuel(4)
+      # expect(car.fuel).to eq 4
     end
 
   end
