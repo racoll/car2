@@ -13,4 +13,8 @@ class Car
     @fuel += amount
   end
 
+  def deduct(amount)
+    # @fuel -= amount
+  end
+
 end

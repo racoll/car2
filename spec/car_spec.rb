@@ -8,6 +8,8 @@ RSpec.describe Car do
     expect(car.fuel).to eq 0
   end
 
+  it { is_expected.to respond_to(:deduct).with(1).argument }
+
   describe "#refuel" do
 
     it { is_expected.to respond_to(:refuel).with(1).argument }
