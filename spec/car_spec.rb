@@ -19,6 +19,12 @@ RSpec.describe Car do
     expect(car.in_journey?).to eq true
   end
 
+  it "can stop" do
+    car.drive
+    car.stop
+    expect(car.in_journey?).to eq false
+  end
+
 
   describe "#deduct_fuel" do
 

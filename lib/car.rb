@@ -26,4 +26,8 @@ class Car
     @in_journey = true
   end
 
+  def stop
+    @in_journey = false
+  end
+
 end
