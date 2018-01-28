@@ -18,6 +18,12 @@ RSpec.describe Car do
       # expect(car.fuel).to eq 4
     end
 
+    it "raises an error if max fuel is exceeded" do
+      maximum_fuel = Car::MAXIMUM_FUEL
+      car.refuel(maximum_fuel)
+      expect { car.refuel 1 }.to raise_error "Maximum fuel exceeded"
+    end
+
   end
 
 end

@@ -1,5 +1,7 @@
 class Car
 
+  MAXIMUM_FUEL = 4
+
   attr_reader :fuel
 
   def initialize
@@ -7,7 +9,8 @@ class Car
   end
 
   def refuel(amount)
-    @fuel += 4
+    fail "Maximum fuel exceeded" if amount + fuel > MAXIMUM_FUEL
+    @fuel += amount
   end
 
 end
