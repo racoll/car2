@@ -17,4 +17,7 @@ class Car
     @fuel -= amount
   end
 
+  def in_journey?
+  end
+
 end

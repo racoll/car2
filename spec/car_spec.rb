@@ -8,6 +8,13 @@ RSpec.describe Car do
     expect(car.fuel).to eq 0
   end
 
+
+  it "is initially not in a journey" do
+    # expect(car.in_journey?).to eq false
+    expect(car).not_to be_in_journey
+  end
+
+
   describe "#deduct_fuel" do
 
     it { is_expected.to respond_to(:deduct_fuel).with(1).argument }
