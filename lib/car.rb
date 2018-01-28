@@ -9,7 +9,7 @@ class Car
   end
 
   def refuel(amount)
-    fail "Maximum fuel exceeded" if amount + fuel > MAXIMUM_FUEL
+    fail "Maximum fuel of #{MAXIMUM_FUEL} exceeded" if amount + fuel > MAXIMUM_FUEL
     @fuel += amount
   end
 
