@@ -10,8 +10,13 @@ RSpec.describe Car do
 
 
   it "is initially not in a journey" do
-    # expect(car.in_journey?).to eq false
-    expect(car).not_to be_in_journey
+    expect(car.in_journey?).to eq false
+    # expect(car).not_to be_in_journey
+  end
+
+  it "can drive" do
+    car.drive
+    expect(car.in_journey?).to eq true
   end
 
 

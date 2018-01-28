@@ -2,10 +2,11 @@ class Car
 
   MAXIMUM_FUEL = 4
 
-  attr_reader :fuel
+  attr_reader :fuel, :in_journey
 
   def initialize
     @fuel = 0
+    @in_journey = false
   end
 
   def refuel(amount)
@@ -18,6 +19,11 @@ class Car
   end
 
   def in_journey?
+    @in_journey
+  end
+
+  def drive
+    @in_journey = true
   end
 
 end
