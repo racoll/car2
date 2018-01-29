@@ -14,11 +14,20 @@ RSpec.describe Car do
     # expect(car).not_to be_in_journey
   end
 
-  it "can drive" do
-    car.refuel(4)
-    car.drive
-    expect(car.in_journey?).to eq true
+  describe "#drive" do
+    it "can drive" do
+      car.refuel(4)
+      car.drive
+      expect(car.in_journey?).to eq true
+    end
+
+    it "can reduce the amount of fuel" do
+      car.refuel(4)
+      car.drive
+      expect{ car.stop }.to change{ car.fuel }.by(-Car::MINIMUM_FUEL)
+    end
   end
+
 
   it "can stop" do
     car.refuel(4)

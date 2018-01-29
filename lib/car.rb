@@ -29,6 +29,7 @@ class Car
   end
 
   def stop
+    deduct_fuel(MINIMUM_FUEL)
     @in_journey = false
   end
 
