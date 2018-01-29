@@ -15,14 +15,20 @@ RSpec.describe Car do
   end
 
   it "can drive" do
+    car.refuel(4)
     car.drive
     expect(car.in_journey?).to eq true
   end
 
   it "can stop" do
+    car.refuel(4)
     car.drive
     car.stop
     expect(car.in_journey?).to eq false
+  end
+
+  it "will not be able to drive if fuel below minimum" do
+    expect{ car.drive }.to raise_error "Insufficient fuel to drive"
   end
 
 

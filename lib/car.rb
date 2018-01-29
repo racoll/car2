@@ -1,6 +1,7 @@
 class Car
 
   MAXIMUM_FUEL = 4
+  MINIMUM_FUEL = 1
 
   attr_reader :fuel, :in_journey
 
@@ -23,6 +24,7 @@ class Car
   end
 
   def drive
+    fail "Insufficient fuel to drive" if @fuel < MINIMUM_FUEL
     @in_journey = true
   end
 
