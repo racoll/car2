@@ -15,9 +15,9 @@ class Car
     @fuel += amount
   end
 
-  def deduct_fuel(amount)
-    @fuel -= amount
-  end
+  # def deduct_fuel(amount)
+  #   @fuel -= amount
+  # end
 
   def in_journey?
     @in_journey
@@ -32,5 +32,12 @@ class Car
     deduct_fuel(MINIMUM_FUEL)
     @in_journey = false
   end
+
+private
+
+  def deduct_fuel(amount)
+    @fuel -= amount
+  end
+
 
 end
