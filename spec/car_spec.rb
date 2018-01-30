@@ -30,6 +30,10 @@ RSpec.describe Car do
     expect(car.end_location).to eq end_location
   end
 
+  it 'has an empty list of journeys by default' do
+    expect(car.journeys).to be_empty
+  end
+
 
   describe "#drive" do
 

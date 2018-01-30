@@ -3,11 +3,12 @@ class Car
   MAXIMUM_FUEL = 4
   MINIMUM_FUEL = 1
 
-  attr_reader :fuel, :in_journey, :start_location, :end_location
+  attr_reader :fuel, :in_journey, :start_location, :end_location, :journeys
 
   def initialize
     @fuel = 0
     @in_journey = false
+    @journeys = []
   end
 
   def refuel(amount)
