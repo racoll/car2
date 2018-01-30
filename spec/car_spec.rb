@@ -4,6 +4,7 @@ RSpec.describe Car do
 
   let(:start_location) { double :location }
   let(:end_location) { double :location }
+  let(:journey) { { start_location: start_location, end_location: end_location } }
 
   subject(:car) { described_class.new }
 
@@ -20,19 +21,26 @@ RSpec.describe Car do
   it "stores the start location" do
     car.refuel(4)
     car.drive(start_location)
-    expect(car.start_location).to eq start_location
+    expect(car.journeys).to eq [start_location]
   end
 
-  it 'stores the end location' do
+  it "stores the the journey" do
     car.refuel(4)
     car.drive(start_location)
     car.stop(end_location)
-    expect(car.end_location).to eq end_location
+    expect(car.journeys).to eq [start_location, end_location]
   end
 
-  it 'has an empty list of journeys by default' do
+  it "has an empty list of journeys by default" do
     expect(car.journeys).to be_empty
   end
+
+  # it 'stores a journey' do
+  #   car.refuel(4)
+  #   car.drive(start_location)
+  #   car.stop(end_location)
+  #   expect(car.journeys).to include [journey]
+  # end
 
 
   describe "#drive" do

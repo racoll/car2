@@ -26,14 +26,16 @@ class Car
 
   def drive(start_location)
     fail "Insufficient fuel to drive" if @fuel < MINIMUM_FUEL
-    @in_journey = true
+    # @in_journey = true
     @start_location = start_location
+    @journeys << start_location
   end
 
   def stop(end_location)
     deduct_fuel(MINIMUM_FUEL)
     @start_location = nil
-    @end_location = end_location
+    # @end_location = end_location
+    @journeys << end_location
   end
 
 private
