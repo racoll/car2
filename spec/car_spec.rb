@@ -2,7 +2,8 @@ require "car"
 
 RSpec.describe Car do
 
-  let(:location) { double :location }
+  let(:start_location) { double :location }
+  let(:end_location) { double :location }
 
   subject(:car) { described_class.new }
 
@@ -18,8 +19,15 @@ RSpec.describe Car do
 
   it "stores the start location" do
     car.refuel(4)
-    car.drive(location)
-    expect(car.start_location).to eq location
+    car.drive(start_location)
+    expect(car.start_location).to eq start_location
+  end
+
+  it 'stores the end location' do
+    car.refuel(4)
+    car.drive(start_location)
+    car.stop(end_location)
+    expect(car.end_location).to eq end_location
   end
 
 
@@ -27,7 +35,7 @@ RSpec.describe Car do
 
     it "can drive" do
       car.refuel(4)
-      car.drive(location)
+      car.drive(start_location)
       expect(car.in_journey?).to eq true
     end
 
@@ -39,24 +47,24 @@ RSpec.describe Car do
 
     it "can stop" do
       car.refuel(4)
-      car.drive(location)
-      car.stop
+      car.drive(start_location)
+      car.stop(end_location)
       expect(car.in_journey?).to eq false
     end
 
     it "will not be able to drive if fuel below minimum" do
-      expect{ car.drive(location) }.to raise_error "Insufficient fuel to drive"
+      expect{ car.drive(start_location) }.to raise_error "Insufficient fuel to drive"
     end
 
     it "can reduce the amount of fuel" do
       car.refuel(4)
-      car.drive(location)
-      expect{ car.stop }.to change{ car.fuel }.by(-Car::MINIMUM_FUEL)
+      car.drive(start_location)
+      expect{ car.stop(end_location) }.to change{ car.fuel }.by(-Car::MINIMUM_FUEL)
     end
 
     it "deducts fuel from the car when it stops" do
       car.refuel(4)
-      expect { car.stop }.to change{ car.fuel }.by(-Car::MINIMUM_FUEL)
+      expect { car.stop(end_location) }.to change{ car.fuel }.by(-Car::MINIMUM_FUEL)
     end
 
   end

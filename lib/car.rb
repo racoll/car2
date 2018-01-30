@@ -3,7 +3,7 @@ class Car
   MAXIMUM_FUEL = 4
   MINIMUM_FUEL = 1
 
-  attr_reader :fuel, :in_journey, :start_location
+  attr_reader :fuel, :in_journey, :start_location, :end_location
 
   def initialize
     @fuel = 0
@@ -23,15 +23,16 @@ class Car
     !!start_location
   end
 
-  def drive(location)
+  def drive(start_location)
     fail "Insufficient fuel to drive" if @fuel < MINIMUM_FUEL
     @in_journey = true
-    @start_location = location
+    @start_location = start_location
   end
 
-  def stop
+  def stop(end_location)
     deduct_fuel(MINIMUM_FUEL)
     @start_location = nil
+    @end_location = end_location
   end
 
 private
