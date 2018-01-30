@@ -21,14 +21,14 @@ RSpec.describe Car do
   it "stores the start location" do
     car.refuel(4)
     car.drive(start_location)
-    expect(car.journeys).to eq [start_location]
+    expect(car.journey).to eq [start_location]
   end
 
   it "stores the the journey" do
     car.refuel(4)
     car.drive(start_location)
     car.stop(end_location)
-    expect(car.journeys).to eq [start_location, end_location]
+    expect(car.journeys).to eq [[start_location, end_location]]
   end
 
   it "has an empty list of journeys by default" do
