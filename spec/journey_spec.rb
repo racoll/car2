@@ -1,4 +1,6 @@
 require "journey"
+require "car"
+
 describe Journey do
 
   let(:journey){ double :journey } #this may need to have some methods
@@ -14,7 +16,7 @@ describe Journey do
     end
 
     it 'records a journey' do
-      allow(journey_class).to receive(:new).and_return journey
+      allow(journey).to receive(:new).and_return journey
       subject.drive(start_location)
       expect(subject.journeys).to include journey
     end
