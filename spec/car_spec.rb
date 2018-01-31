@@ -2,8 +2,9 @@ require "car"
 
 RSpec.describe Car do
 
-  let(:start_location) { double :location }
-  let(:end_location) { double :location }
+  let(:start_location) { double :start_location }
+  let(:end_location) { double :end_location }
+  # let(:journeys) { {  start_location: start_location, end_location: end_location } }
   let(:journey) { { start_location: start_location, end_location: end_location } }
 
   subject(:car) { described_class.new }
@@ -39,7 +40,7 @@ RSpec.describe Car do
   #   car.refuel(4)
   #   car.drive(start_location)
   #   car.stop(end_location)
-  #   expect(car.journeys).to include [journey]
+  #   expect(car.journeys).to include journey
   # end
 
 
